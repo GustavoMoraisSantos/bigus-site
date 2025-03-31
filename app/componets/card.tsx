@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 interface Product {
@@ -21,7 +22,7 @@ const ProductCard: React.FC<{ product: Product; isLoading: boolean }> = ({ produ
         </div>
       ) : (
         <>
-          <img 
+          <Image 
             src={imageUrl} 
             alt={product.name} 
             className="h-40 w-full object-contain rounded-lg mb-4" 
