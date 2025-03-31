@@ -28,10 +28,29 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      <Navbar/>
-      <div className="mt-16">
-        {children}
-      </div>
+        <Navbar />
+        <div className="mt-16">{children}</div>
+
+        {/* Botão flutuante do WhatsApp */}
+        <a
+          href="https://wa.me/5541996301244?text=O%20Gustavo%20%C3%A9%20muito%20boiola"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group fixed bottom-1.5 right-1.5 bg-green-500 text-white p-1 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-green-600 z-50"
+          style={{
+            fontSize: "24px",
+          }}
+        >
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/018/930/564/non_2x/whatsapp-logo-whatsapp-icon-whatsapp-transparent-free-png.png"
+            alt="WhatsApp"
+            className="whatsapp-logo w-12 h-12 transition-all duration-300 group-hover:scale-110"
+          />
+          {/* Texto que aparece ao passar o mouse */}
+          <span className="whatsapp-text mr-4 hidden group-hover:inline-block ml-3 text-sm">
+            Enviar mensagem
+          </span>
+        </a>
       </body>
     </html>
   );
