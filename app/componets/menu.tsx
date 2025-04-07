@@ -39,14 +39,16 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <button className="relative cursor-pointer" onClick={openDrawer}>
-          <ShoppingCart className="w-6 h-6 hover:text-white/80 transition" />
-          {cart.length > 0 && (
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs px-1">
-              {cart.reduce((acc, item) => acc + item.quantity, 0)}
-            </span>
-          )}
-        </button>
+        {pathname === "/" && (
+          <button className="relative cursor-pointer" onClick={openDrawer}>
+            <ShoppingCart className="w-6 h-6 hover:text-white/80 transition" />
+            {cart.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs px-1">
+                {cart.reduce((acc, item) => acc + item.quantity, 0)}
+              </span>
+            )}
+          </button>
+        )}
       </div>
     </nav>
   );
