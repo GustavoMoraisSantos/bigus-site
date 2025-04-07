@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useCart } from "./cart-context";
 import { usePathname } from "next/navigation";
 import { useCartDrawer } from "./cart-drawer-context";
+import BigusLogo from "../assets/bigus-logo-new.png";
+import Image from "next/image";
 
 const Navbar = () => {
   const { cart } = useCart();
@@ -11,7 +13,10 @@ const Navbar = () => {
   const { openDrawer } = useCartDrawer();
   return (
     <nav className="bg-blue-600 w-full fixed top-0 left-0 z-50 shadow-lg">
-      <div className="max-w-screen-xl mx-auto px-4 py-4 flex justify-between items-center text-white">
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10">
+        <Image alt="bigus-logo" src={BigusLogo} width={100} />
+      </div>
+      <div className="max-w-screen-xl mx-auto pl-32 pr-4 py-4 flex justify-between items-center text-white">
         <ul className="flex space-x-8 font-medium text-white text-base md:text-lg">
           <li>
             <Link
