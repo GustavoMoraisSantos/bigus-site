@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./componets/menu";
 import Image from "next/image";
+import WhatsLogo from "./assets/whats-logo.png";
+import { CartProvider } from "./componets/cart-context";
+import Navbar from "./componets/menu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,14 +27,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ptBR">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <div className="mt-16">{children}</div>
+        <CartProvider>
+          <Navbar />
+          <div className="mt-16">{children}</div>
+        </CartProvider>
 
-        {/* Botão flutuante do WhatsApp */}
         <a
           href="https://wa.me/5541996301244?text=O%20Gustavo%20%C3%A9%20muito%20boiola"
           target="_blank"
@@ -43,11 +46,12 @@ export default function RootLayout({
           }}
         >
           <Image
-            src="https://static.vecteezy.com/system/resources/previews/018/930/564/non_2x/whatsapp-logo-whatsapp-icon-whatsapp-transparent-free-png.png"
+            src={WhatsLogo}
             alt="WhatsApp"
+            width={48}
+            height={48}
             className="whatsapp-logo w-12 h-12 transition-all duration-300 group-hover:scale-110"
           />
-          {/* Texto que aparece ao passar o mouse */}
           <span className="whatsapp-text mr-4 hidden group-hover:inline-block ml-3 text-sm">
             Enviar mensagem
           </span>

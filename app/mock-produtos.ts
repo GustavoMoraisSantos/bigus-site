@@ -1,155 +1,177 @@
-
 export const mockProducts = [
   {
     id: 1,
     name: "Produto de Limpeza 1 - Amaciante",
-    url:"https://redemix.vteximg.com.br/arquivos/ids/215902-1000-1000/7896013109044.png?v=638398861259900000",
-    description: "Este produto vai deixar suas roupinhas cheirosinhas e macias.",
+    description:
+      "Este produto vai deixar suas roupinhas cheirosinhas e macias.",
     price: "15.99",
   },
   {
     id: 2,
     name: "Produto de Limpeza 2",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "10.00",
   },
   {
     id: 3,
     name: "Produto de Limpeza 3",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "34.75",
   },
   {
     id: 4,
     name: "Produto de Limpeza 4 - Desinfetante",
-    url: "data:image/jpeg;base64,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",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "30.30",
   },
   {
     id: 5,
     name: "Produto de Limpeza 5",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "19.99",
   },
   {
     id: 6,
     name: "Produto de Limpeza 6",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "23.40",
   },
   {
     id: 7,
     name: "Produto de Limpeza 7",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "14.99",
   },
   {
     id: 8,
     name: "Produto de Limpeza 8",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "29.99",
   },
   {
     id: 9,
     name: "Produto de Limpeza 9",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "18.20",
   },
   {
     id: 10,
     name: "Produto de Limpeza 10",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "35.50",
   },
   {
     id: 11,
     name: "Produto de Limpeza 11",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "24.99",
   },
   {
     id: 12,
     name: "Produto de Limpeza 12",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "16.80",
   },
   {
     id: 13,
     name: "Produto de Limpeza 13",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "27.10",
   },
   {
     id: 14,
     name: "Produto de Limpeza 14",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "20.40",
   },
   {
     id: 15,
     name: "Produto de Limpeza 15",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "30.75",
   },
   {
     id: 16,
     name: "Produto de Limpeza 16",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "19.50",
   },
   {
     id: 17,
     name: "Produto de Limpeza 17",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "25.90",
   },
   {
     id: 18,
     name: "Produto de Limpeza 18",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "17.75",
   },
   {
     id: 19,
     name: "Produto de Limpeza 19",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "21.80",
   },
   {
     id: 20,
     name: "Produto de Limpeza 20",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "29.99",
   },
   {
     id: 21,
     name: "Produto de Limpeza 21",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "22.10",
   },
   {
     id: 22,
     name: "Produto de Limpeza 22",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "32.60",
   },
   {
     id: 23,
     name: "Produto de Limpeza 23",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "25.00",
   },
   {
     id: 24,
     name: "Produto de Limpeza 24",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "40.00",
   },
   {
     id: 25,
     name: "Produto de Limpeza 25",
-    description: "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "26.50",
   },
 ];
