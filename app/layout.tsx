@@ -5,6 +5,7 @@ import Image from "next/image";
 import WhatsLogo from "./assets/whats-logo.png";
 import { CartProvider } from "./componets/cart-context";
 import Navbar from "./componets/menu";
+import { CartDrawerProvider } from "./componets/cart-drawer-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,12 +33,14 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <CartProvider>
-          <Navbar />
-          <div className="mt-14">{children}</div>
+          <CartDrawerProvider>
+            <Navbar />
+            <div className="mt-14">{children}</div>
+          </CartDrawerProvider>
         </CartProvider>
 
         <a
-          href="https://wa.me/5541996301244?text=O%20Gustavo%20%C3%A9%20muito%20boiola"
+          href="https://wa.me/5541996301244?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20de%20limpeza%20disponíveis%20na%20loja."
           target="_blank"
           rel="noopener noreferrer"
           className="group fixed bottom-1.5 right-1.5 bg-green-500 text-white p-1 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-green-600 z-50"
@@ -56,6 +59,13 @@ export default function RootLayout({
             Enviar mensagem
           </span>
         </a>
+
+        <footer className="bg-blue-600 text-white py-6 mt-10">
+          <div className="text-center text-sm">
+            © {new Date().getFullYear()} Loja de Produtos de Limpeza. Todos os
+            direitos reservados.
+          </div>
+        </footer>
       </body>
     </html>
   );

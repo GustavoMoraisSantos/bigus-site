@@ -1,24 +1,13 @@
-'use client'
-import React, { useEffect, useState } from 'react';
-import ProductCard from './card';
-import { mockProducts } from '../mock-produtos';
+"use client";
+import React from "react";
+import ProductCard from "./card";
+import { mockProducts } from "../mock-produtos";
 
 const ProductGrid = () => {
-  const [products, setProducts] = useState<{ id: number; name: string; description: string; price: string }[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Simulando o carregamento dos produtos
-  useEffect(() => {
-    setTimeout(() => {
-      setProducts(mockProducts);
-      setIsLoading(false);
-    }, 2000); // Simulando 2 segundos de carregamento
-  }, []);
-
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-x-10 px-10 gap-y-10 p-4">
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} isLoading={isLoading} />
+    <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      {mockProducts.map((product) => (
+        <ProductCard key={product.id} product={product} isLoading={false} />
       ))}
     </div>
   );

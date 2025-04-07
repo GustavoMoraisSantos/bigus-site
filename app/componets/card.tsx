@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import React from "react";
-import { ShoppingCart } from "lucide-react";
 import { useCart } from "./cart-context";
+import { ShoppingCart } from "lucide-react";
+import { useCartDrawer } from "./cart-drawer-context";
 
 interface Product {
   id: number;
@@ -20,8 +21,11 @@ const ProductCard: React.FC<{ product: Product; isLoading: boolean }> = ({
   const imageUrl = product.url;
   const { addToCart } = useCart();
 
+  const { openDrawer } = useCartDrawer();
+
   return (
-    <div className="p-4 border border-gray-200 rounded-2xl shadow-sm bg-white flex flex-col justify-between min-h-[400px] hover:shadow-lg transition duration-300">
+    <div className="p-4 border border-gray-200 rounded-xl shadow-md bg-white flex flex-col justify-between min-h-[360px] transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl">
+      {/* <div className="p-4 border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition duration-300 bg-white flex flex-col justify-between min-h-[400px]"> */}
       {isLoading ? (
         <div className="animate-pulse space-y-4 flex-1">
           <div className="h-40 bg-gray-300 rounded-lg"></div>
@@ -37,38 +41,37 @@ const ProductCard: React.FC<{ product: Product; isLoading: boolean }> = ({
             <Image
               src={imageUrl}
               alt={product.name}
+              width={200}
+              height={200}
               className="h-40 w-full object-contain rounded-lg mb-4"
-              width={300}
-              height={160}
             />
           )}
 
           <div className="flex-1 flex flex-col justify-between">
             <div>
-              <h3 className="text-base font-semibold text-gray-800">
+              <h3 className="text-lg font-semibold text-gray-800">
                 {product.name}
               </h3>
-              <p className="text-sm text-gray-500 mt-1">
-                {product.description}
-              </p>
-              <p className="mt-2 text-lg font-bold text-blue-600">
+              <p className="text-sm text-gray-500">{product.description}</p>
+              <p className="mt-2 text-xl font-bold text-blue-600">
                 R${product.price}
               </p>
             </div>
 
             <button
-              onClick={() =>
+              onClick={() => {
                 addToCart({
                   id: product.id.toString(),
                   name: product.name,
                   price: Number(product.price),
                   image: imageUrl || "",
                   quantity: 1,
-                })
-              }
-              className="mt-4 w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-xl transition duration-200"
+                });
+                openDrawer();
+              }}
+              className="mt-4 w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-xl transition duration-200 cursor-pointer"
             >
-              <ShoppingCart className="w-4 h-4" /> Adicionar
+              <ShoppingCart className="w-5 h-5" /> Adicionar ao carrinho
             </button>
           </div>
         </>
