@@ -1,6 +1,8 @@
 "use client";
+
 import Image from "next/image";
 import React from "react";
+import { ShoppingCart } from "lucide-react";
 import { useCart } from "./cart-context";
 
 interface Product {
@@ -16,11 +18,10 @@ const ProductCard: React.FC<{ product: Product; isLoading: boolean }> = ({
   isLoading,
 }) => {
   const imageUrl = product.url;
-
   const { addToCart } = useCart();
 
   return (
-    <div className="p-4 border rounded-lg shadow-lg bg-white flex flex-col justify-between min-h-[360px]">
+    <div className="p-4 border border-gray-200 rounded-2xl shadow-sm bg-white flex flex-col justify-between min-h-[400px] hover:shadow-lg transition duration-300">
       {isLoading ? (
         <div className="animate-pulse space-y-4 flex-1">
           <div className="h-40 bg-gray-300 rounded-lg"></div>
@@ -31,22 +32,26 @@ const ProductCard: React.FC<{ product: Product; isLoading: boolean }> = ({
       ) : (
         <>
           {!imageUrl ? (
-            <div className="h-40 bg-gray-300 rounded-lg"></div>
+            <div className="h-40 bg-gray-100 rounded-lg"></div>
           ) : (
             <Image
               src={imageUrl}
               alt={product.name}
               className="h-40 w-full object-contain rounded-lg mb-4"
+              width={300}
+              height={160}
             />
           )}
 
           <div className="flex-1 flex flex-col justify-between">
             <div>
-              <h3 className="text-lg font-semibold text-gray-700">
+              <h3 className="text-base font-semibold text-gray-800">
                 {product.name}
               </h3>
-              <p className="text-sm text-gray-500">{product.description}</p>
-              <p className="mt-2 text-xl font-bold text-gray-900">
+              <p className="text-sm text-gray-500 mt-1">
+                {product.description}
+              </p>
+              <p className="mt-2 text-lg font-bold text-blue-600">
                 R${product.price}
               </p>
             </div>
@@ -61,9 +66,9 @@ const ProductCard: React.FC<{ product: Product; isLoading: boolean }> = ({
                   quantity: 1,
                 })
               }
-              className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition duration-200 cursor-pointer"
+              className="mt-4 w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-xl transition duration-200"
             >
-              Adicionar ao carrinho
+              <ShoppingCart className="w-4 h-4" /> Adicionar
             </button>
           </div>
         </>
