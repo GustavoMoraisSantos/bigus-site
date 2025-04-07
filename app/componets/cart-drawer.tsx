@@ -54,18 +54,19 @@ export default function CartDrawer({
                 <div className="flex items-center space-x-1">
                   <button
                     className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
-                    onClick={() => addToCart({ ...item, quantity: 1 })}
+                    onClick={() => removeFromCart(item.id)}
                   >
-                    +
+                    –
                   </button>
                   <span className="text-sm w-5 text-center">
                     {item.quantity}
                   </span>
+
                   <button
                     className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
-                    onClick={() => removeFromCart(item.id)}
+                    onClick={() => addToCart({ ...item, quantity: 1 })}
                   >
-                    –
+                    +
                   </button>
                 </div>
               </div>

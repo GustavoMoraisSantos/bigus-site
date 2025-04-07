@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import Image from "next/image";
@@ -11,7 +12,7 @@ interface Product {
   name: string;
   description: string;
   price: string;
-  url?: string;
+  url?: any;
 }
 
 const ProductCard: React.FC<{ product: Product; isLoading: boolean }> = ({

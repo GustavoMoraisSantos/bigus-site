@@ -15,6 +15,9 @@ export default function Home() {
         <p className="mt-4 text-lg text-gray-600">
           Explore os melhores produtos para o seu negócio, comércio ou casa!
         </p>
+        <p className="mt-4 text-lg text-gray-600">
+          Atendemos entregas em Barbosa Ferraz - PR e região.
+        </p>
         <div className="absolute right-4 top-4 opacity-70 w-40 h-40 bg-[url('/bubbles.svg')] bg-no-repeat bg-contain pointer-events-none  md:block" />
       </div>
       <CartDrawer isOpen={isOpen} onClose={closeDrawer} />
