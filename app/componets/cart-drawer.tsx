@@ -185,10 +185,8 @@ export default function CartDrawer({
 
           <button
             disabled={
-              total < MIN_ORDER_VALUE ||
-              !customerName ||
-              !customerEmail ||
-              !customerPhone
+              // total < MIN_ORDER_VALUE ||
+              !customerName || !customerEmail || !customerPhone
             }
             onClick={async () => {
               if (!validateForm()) return;

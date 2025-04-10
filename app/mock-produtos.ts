@@ -21,7 +21,8 @@ export const mockProducts = [
     url: lavaLoucaClean,
     description:
       "Este produto vai deixar suas roupinhas cheirosinhas e macias.",
-    price: "16.90",
+    price: "1.0",
+    // price: "16.90",
   },
   {
     id: 2,
