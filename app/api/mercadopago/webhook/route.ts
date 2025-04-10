@@ -22,3 +22,7 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json({ received: true });
 }
+
+export async function GET() {
+  return NextResponse.json({ status: "Webhook ativo" });
+}
