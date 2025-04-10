@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { ShoppingCart, X } from "lucide-react";
 import { useCart } from "./cart-context";
+import { useState } from "react";
 
 export default function CartDrawer({
   isOpen,
@@ -13,6 +15,36 @@ export default function CartDrawer({
   const { cart, removeFromCart, addToCart } = useCart();
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
   const MIN_ORDER_VALUE = 350;
+
+  const [customerName, setCustomerName] = useState("");
+  const [customerEmail, setCustomerEmail] = useState("");
+  const [customerPhone, setCustomerPhone] = useState("");
+  const [errors, setErrors] = useState<{
+    name?: string;
+    email?: string;
+    phone?: string;
+  }>({});
+
+  function validateForm() {
+    const newErrors: typeof errors = {};
+
+    if (customerName.trim().length < 3) {
+      newErrors.name = "Informe um nome válido.";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(customerEmail)) {
+      newErrors.email = "Informe um e-mail válido.";
+    }
+
+    const numericPhone = customerPhone.replace(/\D/g, "");
+    if (numericPhone.length < 10) {
+      newErrors.phone = "Informe um telefone válido.";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }
 
   return (
     <div
@@ -97,22 +129,91 @@ export default function CartDrawer({
               grátis 🎉
             </div>
           )}
+          <div className="space-y-3 mb-4">
+            <div>
+              <input
+                type="text"
+                placeholder="Nome completo"
+                value={customerName}
+                onChange={(e) => setCustomerName(e.target.value)}
+                className={`w-full px-4 py-2 border text-sm rounded-md ${
+                  errors.name ? "border-red-500" : "border-gray-300"
+                } focus:outline-none focus:ring-2 focus:ring-blue-200`}
+              />
+              {errors.name && (
+                <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+              )}
+            </div>
+
+            <div>
+              <input
+                type="email"
+                placeholder="E-mail"
+                value={customerEmail}
+                onChange={(e) => setCustomerEmail(e.target.value)}
+                className={`w-full px-4 py-2 border text-sm rounded-md ${
+                  errors.email ? "border-red-500" : "border-gray-300"
+                } focus:outline-none focus:ring-2 focus:ring-blue-200`}
+              />
+              {errors.email && (
+                <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+              )}
+            </div>
+
+            <div>
+              <input
+                type="tel"
+                placeholder="Telefone"
+                value={customerPhone}
+                onChange={(e) => {
+                  const raw = e.target.value.replace(/\D/g, ""); // remove tudo que não for número
+                  const formatted = raw
+                    .replace(/^(\d{2})(\d)/, "($1) $2")
+                    .replace(/(\d{5})(\d)/, "$1-$2")
+                    .slice(0, 15); // limita a 15 caracteres com máscara
+                  setCustomerPhone(formatted);
+                }}
+                className={`w-full px-4 py-2 border text-sm rounded-md ${
+                  errors.phone ? "border-red-500" : "border-gray-300"
+                } focus:outline-none focus:ring-2 focus:ring-blue-200`}
+              />
+              {errors.phone && (
+                <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
+              )}
+            </div>
+          </div>
 
           <button
-            disabled={total < MIN_ORDER_VALUE}
+            disabled={
+              total < MIN_ORDER_VALUE ||
+              !customerName ||
+              !customerEmail ||
+              !customerPhone
+            }
             onClick={async () => {
+              if (!validateForm()) return;
+
               const response = await fetch("/api/create_preference", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ cart }),
+                body: JSON.stringify({
+                  cart,
+                  customerName,
+                  customerEmail,
+                  customerPhone,
+                }),
               });
+
               const data = await response.json();
               window.location.href = data.init_point;
             }}
             className={`w-full font-bold py-3 rounded-lg transition duration-200 ${
-              total < MIN_ORDER_VALUE
+              total < MIN_ORDER_VALUE ||
+              !customerName ||
+              !customerEmail ||
+              !customerPhone
                 ? "bg-gray-300 text-gray-600 cursor-not-allowed"
                 : "bg-blue-600 hover:bg-blue-700 text-white"
             }`}
