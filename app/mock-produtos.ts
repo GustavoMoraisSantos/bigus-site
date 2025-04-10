@@ -17,122 +17,122 @@ import multiUsoGeral from "./assets/multi-uso-geral.png";
 export const mockProducts = [
   {
     id: 1,
-    name: "Produto de Limpeza 1 - Amaciante",
+    name: "Lava louças 5L- Clean",
     url: lavaLoucaClean,
     description:
       "Este produto vai deixar suas roupinhas cheirosinhas e macias.",
-    price: "15.99",
+    price: "16.90",
   },
   {
     id: 2,
     url: lavaLoucaNeutro,
-    name: "Produto de Limpeza 2",
+    name: "Lava louças 5L- Neutro",
     description:
       "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
-    price: "10.00",
+    price: "16.90",
   },
   {
     id: 3,
     url: lavaLoucaCoco,
-    name: "Produto de Limpeza 3",
+    name: "Lava louças 5L- Coco",
     description:
       "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
-    price: "34.75",
+    price: "17.90",
   },
   {
     id: 4,
     url: lavaRoupas,
-    name: "Produto de Limpeza 4 - Desinfetante",
+    name: "Lava roupas 5L- Clean",
     description:
       "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
-    price: "30.30",
+    price: "16.90",
   },
   {
     id: 5,
     url: limpadorPerfumadoAlgasMarinhas,
-    name: "Produto de Limpeza 5",
+    name: "Limpador perfumado 5L- Algas Marinhas",
     description:
       "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
-    price: "19.99",
+    price: "16.90",
   },
   {
     id: 6,
     url: limpadorPerfumadoCitronela,
-    name: "Produto de Limpeza 6",
+    name: "Limpador perfumado 5L- Citronela",
     description:
       "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
-    price: "23.40",
+    price: "16.90",
   },
   {
     id: 7,
     url: limpadorPerfumadoEucalipto,
-    name: "Produto de Limpeza 7",
+    name: "Limpador perfumado 5L- Eucalipto",
     description:
       "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
-    price: "14.99",
+    price: "16.90",
   },
   {
     id: 8,
     url: limpadorPerfumadoFlashMax,
-    name: "Produto de Limpeza 8",
+    name: "Limpador perfumado 5L- Flash Max",
     description:
       "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
-    price: "29.99",
+    price: "16.90",
   },
   {
     id: 9,
     url: limpadorPerfumadoFloralTalco,
-    name: "Produto de Limpeza 9",
+    name: "Limpador perfumado 5L- Floral Talco",
     description:
       "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
-    price: "18.20",
+    price: "16.90",
   },
   {
     id: 10,
     url: limpadorPerfumadoKaiak,
-    name: "Produto de Limpeza 10",
+    name: "Limpador perfumado 5L- Kaiak",
     description:
       "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
-    price: "35.50",
+    price: "16.90",
   },
   {
     id: 11,
     url: limpadorPerfumadoKrisca,
-    name: "Produto de Limpeza 11",
+    name: "Limpador perfumado 5L- Krisca",
     description:
       "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
-    price: "24.99",
+    price: "16.90",
   },
   {
     id: 12,
     url: limpadorPerfumadoLavanda,
-    name: "Produto de Limpeza 12",
+    name: "Limpador perfumado 5L- Lavanda",
     description:
       "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
-    price: "16.80",
+    price: "16.90",
   },
   {
     id: 13,
     url: limpadorPinhoGel,
-    name: "Produto de Limpeza 13",
-    description:
-      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
-    price: "27.10",
-  },
-  {
-    id: 14,
-    url: multiUsoConcentrado,
-    name: "Produto de Limpeza 14",
+    name: "Limpador Pinho Gel 5L",
     description:
       "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
     price: "20.40",
   },
   {
-    id: 15,
-    url: multiUsoGeral,
-    name: "Produto de Limpeza 15",
+    id: 14,
+    url: multiUsoConcentrado,
+    name: "Multi uso concentrado 5L",
     description:
       "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
-    price: "30.75",
+    price: "25.90",
+  },
+  {
+    id: 15,
+    url: multiUsoGeral,
+    name: "Multi uso geral 5L",
+    description:
+      "Este é um produto de limpeza muito eficaz. Ele ajuda a remover sujeiras e manchas difíceis.",
+    price: "15.90",
   },
 ];

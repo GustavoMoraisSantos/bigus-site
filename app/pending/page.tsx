@@ -1,21 +1,17 @@
 "use client";
-
 import Link from "next/link";
-import { XCircle } from "lucide-react";
+import { Clock } from "lucide-react";
 
-export default function FailurePage() {
+export default function PendingPage() {
   return (
     <div className="flex flex-col items-center justify-center text-center min-h-[70vh] px-6">
-      <XCircle className="w-16 h-16 text-red-500 mb-4" />
+      <Clock className="w-16 h-16 text-yellow-500 mb-4" />
       <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-        O pagamento falhou ou foi recusado
+        Pagamento em análise
       </h1>
       <p className="text-gray-600 mb-6 max-w-md">
-        Infelizmente não conseguimos concluir seu pagamento. Pode ter ocorrido
-        uma falha na transação ou ela foi recusada pelo seu banco.
-        <br />
-        Tente novamente ou entre em contato com o suporte se o problema
-        persistir.
+        Seu pagamento está sendo processado. Isso pode levar alguns minutos.
+        Você será notificado quando a transação for concluída.
       </p>
 
       <Link

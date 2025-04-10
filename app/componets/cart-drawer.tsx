@@ -12,6 +12,7 @@ export default function CartDrawer({
 }) {
   const { cart, removeFromCart, addToCart } = useCart();
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const MIN_ORDER_VALUE = 350;
 
   return (
     <div
@@ -78,11 +79,27 @@ export default function CartDrawer({
       {/* Footer */}
       {cart.length > 0 && (
         <div className="px-6 py-4 border-t border-gray-200 bg-white">
-          <div className="flex justify-between items-center text-lg font-semibold mb-4">
+          <div className="flex justify-between items-center text-lg font-semibold mb-2">
             <span>Total:</span>
             <span className="text-blue-600">R$ {total.toFixed(2)}</span>
           </div>
+
+          {/* Regra de pedido mínimo */}
+          {total < MIN_ORDER_VALUE ? (
+            <div className="text-sm text-red-700 bg-red-50 border border-red-200 p-2 rounded mb-4 text-center">
+              Faltam <strong>R$ {(MIN_ORDER_VALUE - total).toFixed(2)}</strong>{" "}
+              para atingir o pedido mínimo de R${MIN_ORDER_VALUE.toFixed(2)} e
+              liberar a finalização.
+            </div>
+          ) : (
+            <div className="text-sm text-green-700 bg-green-50 border border-green-200 p-2 rounded mb-4 text-center">
+              Pedido mínimo atingido! Você pode finalizar sua compra com frete
+              grátis 🎉
+            </div>
+          )}
+
           <button
+            disabled={total < MIN_ORDER_VALUE}
             onClick={async () => {
               const response = await fetch("/api/create_preference", {
                 method: "POST",
@@ -94,7 +111,11 @@ export default function CartDrawer({
               const data = await response.json();
               window.location.href = data.init_point;
             }}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition duration-200"
+            className={`w-full font-bold py-3 rounded-lg transition duration-200 ${
+              total < MIN_ORDER_VALUE
+                ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+                : "bg-blue-600 hover:bg-blue-700 text-white"
+            }`}
           >
             Finalizar compra
           </button>

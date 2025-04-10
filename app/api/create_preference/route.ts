@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
   const { cart } = await req.json();
 
   const preference = new Preference(client);
-
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL!;
   try {
     const response = await preference.create({
       body: {
@@ -21,9 +21,9 @@ export async function POST(req: NextRequest) {
           unit_price: item.price,
         })),
         back_urls: {
-          success: "http://localhost:3000/success",
-          failure: "http://localhost:3000/failure",
-          pending: "http://localhost:3000/pending",
+          success: `${BASE_URL}/success`,
+          failure: `${BASE_URL}/failure`,
+          pending: `${BASE_URL}/pending`,
         },
         auto_return: "approved",
       },
